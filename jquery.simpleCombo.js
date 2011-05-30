@@ -38,7 +38,10 @@
 		simpleCombo: function() {
 			this
 				// Augment all single select lists that aren't already augmented
-				.filter('select[type=select-one]:not(.simpleCombo)')
+				.filter(function() {
+					return this.type === 'select-one';
+				})
+				.filter(':not(.simpleCombo)')
 				.addClass('simpleCombo')
 				// Ensure first option is blank if it isn't already: this is the typing area
 				.each(function() {
