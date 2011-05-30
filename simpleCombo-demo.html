@@ -1,0 +1,155 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+	<title>Simple Combo Demo</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<style type="text/css">
+		table { border-collapse: collapse; }
+		tr + tr { border-top: solid 1px gray; }
+		td { vertical-align: top; padding: 0.5em }
+		col { width: 15em; }
+	</style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.simpleCombo.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		// Turn selects into combo boxes
+		$('select.combo').simpleCombo();
+		// Show the selection
+		$('select.combo')
+			.closest('td').after('<td><span><\/span><\/td>').end()
+			.change(function() {
+				$(this).parent().next('td').find('span').text('Selection: ' + $(this).val());
+			}).change();
+	});
+	</script>
+</head>
+<body>
+<table>
+	<col>
+	<tr>
+		<td>
+			Combo with nothing selected.
+		</td>
+		<td>
+			<select class="combo">
+				<option>anacoluthon</option>
+				<option>bibulous</option>
+				<option>crwth</option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Combo with first option selected.
+		</td>
+		<td>
+			<select class="combo">
+				<option selected="selected">anacoluthon</option>
+				<option>bibulous</option>
+				<option>crwth</option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Combo with middle option selected.
+		</td>
+		<td>
+			<select class="combo">
+				<option>anacoluthon</option>
+				<option>bibulous</option>
+				<option selected="selected">crwth</option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Combo with blank option at the start.
+		</td>
+		<td>
+			<select class="combo">
+				<option></option>
+				<option>anacoluthon</option>
+				<option>bibulous</option>
+				<option>crwth</option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Combo with blank option in the middle.
+		</td>
+		<td>
+			<select class="combo">
+				<option>anacoluthon</option>
+				<option>bibulous</option>
+				<option></option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Empty combo.
+		</td>
+		<td>
+			<select class="combo">
+				<!-- Warning: this is not valid HTML -->
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Combo with values.
+		</td>
+		<td>
+			<select class="combo">
+				<option value="A">anacoluthon</option>
+				<option value="B">bibulous</option>
+				<option value="C">crwth</option>
+				<option value="D">dreich</option>
+				<option value="E">epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Plain select box: not a combo.
+		</td>
+		<td>
+			<select>
+				<option>nothing to see here</option>
+				<option>anacoluthon</option>
+				<option>bibulous</option>
+				<option>crwth</option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Multiple select box: won't be turned into a combo
+		</td>
+		<td>
+			<select multiple="multiple">
+				<option>anacoluthon</option>
+				<option>bibulous</option>
+				<option>crwth</option>
+				<option>dreich</option>
+				<option>epistolary</option>
+			</select>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
