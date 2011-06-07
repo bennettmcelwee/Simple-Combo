@@ -80,32 +80,12 @@
 	});
 
 	function updateText(selectList, textManipulator) {
-		var typingArea = selectList.blur().focus()
-			.children('option').eq(0);
-		var text = textManipulator(typingArea.text());
-		typingArea.text(text);
-		// Would prefer to do this
-		// selectList.val(text).change();
-		singleSelectVal(selectList, text).change();
+		// ensure typing area is still selected
+		selectList[0].selectedIndex = 0;
+		// blur/focus to close the select list
+		var typingArea = selectList.blur().focus().children('option').eq(0);
+		typingArea.text(textManipulator(typingArea.text()));
+		selectList.change();
 	}
 
-	// jQuery().val(value) can select multiple items for single select lists, which
-	// has browser-dependent results. (See http://dev.jquery.com/ticket/4878)
-	// So here's a specialised working version.
-	// Instead of $(singleSelect).val(text), call singleSelectVal($(singleSelect), value)
-	function singleSelectVal(singleSelect, value) {
-		return singleSelect.each(function(){
-			var values = $.makeArray(value);
-			var isSet = false;
-			$("option", this).each(function() {
-				var selected = !isSet && (0 <= $.inArray(this.value, values) ||
-					0 <= $.inArray(this.text, values));
-				isSet = isSet || selected;
-				this.selected = selected;
-			});
-			if (!values.length) {
-				this.selectedIndex = -1;
-			}
-		});
-	}
 })(jQuery);
