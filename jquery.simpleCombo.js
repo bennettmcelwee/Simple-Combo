@@ -1,5 +1,5 @@
 /* jQuery Simple Combo Box plugin
- * Version 1.0
+ * Version 1.1
  *
  * Copyright (C) 2009-11 Bennett McElwee. (bennett at thunderguy dot com, http://www.thunderguy.com/semicolon/ )
  * 
