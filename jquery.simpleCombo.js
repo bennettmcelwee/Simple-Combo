@@ -72,7 +72,7 @@
 				.change(function() {
 					var typingArea = $(this).children('option').eq(0);
 					if (!typingArea[0].selected) {
-						typingArea.text('');
+						typingArea.text('').val('');
 					}
 				});
 			return this;
@@ -84,7 +84,8 @@
 		selectList[0].selectedIndex = 0;
 		// blur/focus to close the select list
 		var typingArea = selectList.blur().focus().children('option').eq(0);
-		typingArea.text(textManipulator(typingArea.text()));
+		var text = textManipulator(typingArea.text());
+		typingArea.text(text).val(text);
 		selectList.change();
 	}
 
