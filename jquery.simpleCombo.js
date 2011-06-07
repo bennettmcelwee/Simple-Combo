@@ -1,12 +1,12 @@
 /* jQuery Simple Combo Box plugin
  * Version 1.0
  *
- * Copyright (C) 2009 Bennett McElwee. (bennett at thunderguy dot com, http://www.thunderguy.com/semicolon/ )
+ * Copyright (C) 2009-11 Bennett McElwee. (bennett at thunderguy dot com, http://www.thunderguy.com/semicolon/ )
  * 
  * This work is licensed under the Creative Commons Attribution 3.0 Unported License (http://creativecommons.org/licenses/by/3.0/)
  * Permissions beyond the scope of this license can be requested from the author.
  *
- * This is a jQuery plugin. For more information, see http://www.jquery.com
+ * This is a jQuery plugin. For more information, see http://jquery.com/
  */
 
 (function($) {
@@ -41,8 +41,8 @@
 				.filter(function() {
 					return this.type === 'select-one';
 				})
-				.filter(':not(.simpleCombo)')
-				.addClass('simpleCombo')
+				.filter(':not(.simpleComboActive)')
+				.addClass('simpleComboActive')
 				// Ensure first option is blank if it isn't already: this is the typing area
 				.each(function() {
 					var firstOption = $(this).children('option').eq(0);
