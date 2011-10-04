@@ -52,12 +52,30 @@
 				})
 				// Backspace deletes the last typed character; Delete deletes all typed characters
 				.keydown(function(event) {
-					if (event.which == 8) { // backspace
-						event.preventDefault();
+					var keyCode = event.which;
+					if (keyCode == 8) { // backspace
+    					event.preventDefault();
 						updateText($(this), function(text) { return text.slice(0, -1); });
-					} else if (event.which == 46) { // delete
-						event.preventDefault();
+					} else if (keyCode == 46) { // delete
+    					event.preventDefault();
 						updateText($(this), function(text) { return ''; });
+					} else if (32 <= keyCode && keyCode <= 127) {
+					    // Added work around to prevent firefox from selecting items in the select
+					    // list when the user is typing it.
+					    if ((keyCode >= 65 && keyCode <= 90) && !event.shiftKey) {
+					        keyCode += 32;
+					    }
+    					event.preventDefault();
+						updateText($(this), function(text) { return text + String.fromCharCode(keyCode); });
+                        $(this).blur();
+
+                        var refocus_simple = function(id) {
+                            return function() {
+                                $("#" + id).focus();
+                            };
+                        };
+
+                        setTimeout(refocus_simple($(this).attr("id")), 0);
 					}
 				})
 				// Add typed character to the typing area and select it
