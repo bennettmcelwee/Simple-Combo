@@ -43,27 +43,50 @@
     </div>
 
     <h1><a href="https://github.com/bennettmcelwee/Simple-Combo">jQuery Simple Combo</a>
-      <span class="small">by <a href="https://github.com/bennettmcelwee">bennettmcelwee</a></span></h1>
+      <span class="small">by <a href="https://github.com/bennettmcelwee">Bennett McElwee</a></span></h1>
 
     <div class="description">
       Simple Combo jQuery plugin
     </div>
 
     
-      <p>The <strong>simpleCombo</strong> plugin is a jQuery-based combo box widget that is
+The <strong>simpleCombo</strong> plugin is a jQuery-based combo box widget that is
 <ul>
-	<li>simple</li>
-	<li>lightweight</li>
-	<li>consistent with native widget look and feel</li>
-</ul></p>
-    
+<li>simple</li>
+<li>lightweight</li>
+<li>consistent with native widget look and feel</li>
+</ul>
+
+<p>with simpleCombo, you can turn select lists into combo boxes like this:</p>
+
+<pre><code>$(</code><em>selector</em><code>).simpleCombo();</code></pre>
+
+<p>Simple combo boxes are normal select lists with one extra feature: you can type
+directly into the combo box to add an extra option, which is automatically
+selected.</p>
+
+<p>Since these combo boxes are actually just select lists plus JavaScript, they
+look exactly like regular select lists. They can be styled, resized, etc.
+with no visual glitches.</p>
+
+<h2>Example</h2>
+
+<p>Add combo box functionality to all select lists with the "allow-edit" class.</p>
+
+<pre><code>$('select.allow-edit').simpleCombo();</code></pre>
+
 
     
       <h2>Dependencies</h2>
       <p>jQuery</p>
     
+<h2>Limitations</h2>
 
-    
+<ul>
+<li>This won't work on most touch screen devices, because they won't display a keyboard when a select list is selected.</li>
+<li>On Safari, characters cannot be entered when the combo is expanded.</li>
+<li>Only regular ascii characters can be entered: no accented letters or non-Latin characters.</li>
+</ul>
 
     
       <h2>License</h2>
@@ -73,12 +96,12 @@ Permissions beyond the scope of this license can be requested from the author.</
 
     
       <h2>Authors</h2>
-      <p>Bennett McElwee      </p>
+      <p>Bennett McElwee</p>
     
 
     
       <h2>Contact</h2>
-      <p>Bennett McElwee (bennett@thunderguy.com)<br/>      </p>
+      <p>Bennett McElwee (bennett at thunderguy com)</p>
     
 
     <h2>Download</h2>
