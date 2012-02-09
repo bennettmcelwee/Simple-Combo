@@ -1,0 +1,133 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Simple Combo Test</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+
+	<link type="text/css" href="qunit.css" rel="stylesheet">
+    <script src="qunit.js"></script>
+
+	<script src="jquery.simpleCombo.js"></script>
+	<script>
+	$(function() {
+	
+		module("simpleCombo");
+		
+		test("No blank", function() {
+			var combo = $('#select-5-no-blank').simpleCombo();
+			ok(combo.hasClass('simpleCombo'), 'should have simpleCombo class');
+			equals(6, combo[0].options.length, 'should be 6 options');
+			equals('', combo.children('option:first').val(), 'first option should be blank');
+			equals('anacoluthon', combo.val(), '"anacoluthon" option should be selected');
+		});
+		
+		test("Middle selected", function() {
+			var combo = $('#select-5-middle-selected').simpleCombo();
+			ok(combo.hasClass('simpleCombo'), 'should have simpleCombo class');
+			equals(6, combo[0].options.length, 'should be 6 options');
+			equals('', combo.children('option:first').val(), 'first option should be blank');
+			equals('crwth', combo.val(), '"crwth" option should be selected');
+		});
+		
+		test("Blank at start", function() {
+			var combo = $('#select-6-blank-start').simpleCombo();
+			ok(combo.hasClass('simpleCombo'), 'should have simpleCombo class');
+			equals(6, combo[0].options.length, 'should be 6 options');
+			equals('', combo.children('option:first').val(), 'first option should be blank');
+			equals('', combo.val(), 'blank option should be selected');
+		});
+		
+		test("Empty", function() {
+			var combo = $('#select-0').simpleCombo();
+			ok(combo.hasClass('simpleCombo'), 'should have simpleCombo class');
+			equals(1, combo[0].options.length, 'should be 1 option');
+			equals('', combo.children('option:first').val(), 'option should be blank');
+			equals('', combo.val(), '"option should be selected');
+		});
+		
+		test("Values", function() {
+			var combo = $('#select-5-values').simpleCombo();
+			ok(combo.hasClass('simpleCombo'), 'should have simpleCombo class');
+			equals(6, combo[0].options.length, 'should be 6 options');
+			equals('', combo.children('option:first').val(), 'first option should be blank');
+			equals('A', combo.val(), '"anacoluthon"/"A" option should be selected');
+		});
+		
+		test("Multiple", function() {
+			var combo = $('#select-multiple').simpleCombo();
+			ok( ! combo.hasClass('simpleCombo'), 'should not have simpleCombo class');
+			equals(5, combo[0].options.length, 'should be 5 options');
+		});
+		
+	});
+	</script>
+</head>
+<body>
+
+<h1 id="qunit-header">Simple Combo QUnit tests</h1>
+<h2 id="qunit-banner"></h2>
+<h2 id="qunit-testrunner-toolbar"></h2>
+<h2 id="qunit-userAgent"></h2>
+<ol id="tests"></ol>
+
+<div id="qunit-fixture">
+
+<select id="select-5-no-blank">
+	<option>anacoluthon</option>
+	<option>bibulous</option>
+	<option>crwth</option>
+	<option>dreich</option>
+	<option>epistolary</option>
+</select>
+<select id="select-5-middle-selected">
+	<option>anacoluthon</option>
+	<option>bibulous</option>
+	<option selected="selected">crwth</option>
+	<option>dreich</option>
+	<option>epistolary</option>
+</select>
+<select id="select-6-blank-start">
+	<option></option>
+	<option>anacoluthon</option>
+	<option>bibulous</option>
+	<option>crwth</option>
+	<option>dreich</option>
+	<option>epistolary</option>
+</select>
+<select id="select-5-blank-middle">
+	<option>anacoluthon</option>
+	<option>bibulous</option>
+	<option></option>
+	<option>dreich</option>
+	<option>epistolary</option>
+</select>
+<select id="select-0">
+	<!-- Warning: this is not valid HTML -->
+</select>
+<select id="select-5-values">
+	<option value="A">anacoluthon</option>
+	<option value="B">bibulous</option>
+	<option value="C">crwth</option>
+	<option value="D">dreich</option>
+	<option value="E">epistolary</option>
+</select>
+<select>
+	<option>nothing to see here</option>
+	<option>anacoluthon</option>
+	<option>bibulous</option>
+	<option>crwth</option>
+	<option>dreich</option>
+	<option>epistolary</option>
+</select>
+<select id="select-multiple" multiple="multiple">
+	<option>anacoluthon</option>
+	<option>bibulous</option>
+	<option>crwth</option>
+	<option>dreich</option>
+	<option>epistolary</option>
+</select>
+
+</div>
+</body>
+</html>
