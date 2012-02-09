@@ -1,4 +1,4 @@
-The <strong>simpleCombo</strong> plugin is a jQuery-based combo box widget that is
+<strong>Simple Combo</strong> is a jQuery-based combo box widget that is
 <ul>
 	<li>simple</li>
 	<li>lightweight</li>
